@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 const (
-    a = 1
+    a = iota
     b
-    c = 5
+    c
     d
 )
 
 func main() {
-    fmt.Println(a, b, c, d) // 1 1 5 5
+    fmt.Println(a, b, c, d) // 0 1 2 3
 }
