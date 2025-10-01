@@ -2,12 +2,13 @@ package main
 
 import "fmt"
 
+const (
+    a = 1
+    b
+    c = 5
+    d
+)
+
 func main() {
-// определите переменные ver, id, pi
-	var ver = "v.0.0.1"
-	var id int
-	pi := 3.1415
-
-fmt.Println("ver =", ver, "id =", id, "pi =", pi)
-
+    fmt.Println(a, b, c, d) // 1 1 5 5
 }
