@@ -3,9 +3,7 @@ package main
 import "fmt"
 
 func main() {
-    var message string = "Алиса, в какой папке находятся мои фото?"
-    // lengh := len(message)
-    var lengh int = len(message)
+	path := "C:\\Documents\\Photos"
 
-    fmt.Println(lengh)
+	fmt.Println(path)
 }
