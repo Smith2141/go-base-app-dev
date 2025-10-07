@@ -3,11 +3,9 @@ package main
 import "fmt"
 
 func main() {
-// определите переменные ver, id, pi
-	var ver = "v.0.0.1"
-	var id int
-	pi := 3.1415
+    var message string = "Алиса, в какой папке находятся мои фото?"
+    // lengh := len(message)
+    var lengh int = len(message)
 
-fmt.Println("ver =", ver, "id =", id, "pi =", pi)
-
+    fmt.Println(lengh)
 }
