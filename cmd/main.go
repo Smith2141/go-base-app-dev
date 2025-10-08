@@ -20,4 +20,12 @@ func main() {
 
 	// выведите переменную lowLetterPath и ее значение на экран
 	fmt.Println("lowLetterPath =", lowLetterPath)
+    
+    c := "c"
+    d := "d"
+    count := 1
+
+    newPath := strings.Replace(lowLetterPath,c,d, count)
+
+	fmt.Println("newPath =", newPath)
 }
