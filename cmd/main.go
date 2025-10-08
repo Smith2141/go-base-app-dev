@@ -1,14 +1,23 @@
 package main
 
-import "fmt"
-
-const (
-    a = iota
-    b
-    c
-    d
+// добавьте в импорт необходимый пакет
+import (
+	"fmt"
+	"strings"
 )
 
 func main() {
-    fmt.Println(a, b, c, d) // 0 1 2 3
+	message := "Алиса, в какой папке находятся мои фото?"
+
+	path := "C:\\Documents\\Photos"
+
+	// переведите все символы строки в переменной path в нижний регистр
+	// и присвойте результат переменной lowLetterPath
+	lowLetterPath := strings.ToLower(path)
+
+	fmt.Println(message)
+	fmt.Println("path =", path)
+
+	// выведите переменную lowLetterPath и ее значение на экран
+	fmt.Println("lowLetterPath =", lowLetterPath)
 }
