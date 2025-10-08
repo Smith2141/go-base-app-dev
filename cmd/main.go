@@ -3,9 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	var x int = 89
-	var y float32 = 100.385
-	var result float32 = float32(x) * y
+	var f float64 = 352.5
+	var i int = int(f)
 
-	fmt.Println(result)
+	fmt.Println(i)
 }
