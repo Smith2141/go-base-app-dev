@@ -1,31 +1,14 @@
 package main
 
-// добавьте в импорт необходимый пакет
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
 func main() {
-	message := "Алиса, в какой папке находятся мои фото?"
+    minAge := 18
+    maxAge := 30
 
-	path := "C:\\Documents\\Photos"
+    age := 17
 
-	// переведите все символы строки в переменной path в нижний регистр
-	// и присвойте результат переменной lowLetterPath
-	lowLetterPath := strings.ToLower(path)
-
-	fmt.Println(message)
-	fmt.Println("path =", path)
-
-	// выведите переменную lowLetterPath и ее значение на экран
-	fmt.Println("lowLetterPath =", lowLetterPath)
+    isValidAge := age >= minAge && age <= maxAge
     
-    c := "c"
-    d := "d"
-    count := 1
-
-    newPath := strings.Replace(lowLetterPath,c,d, count)
-
-	fmt.Println("newPath =", newPath)
+    fmt.Println(isValidAge)
 }
