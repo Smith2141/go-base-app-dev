@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 func main() {
@@ -11,7 +10,8 @@ func main() {
 
 	// объявляем строковую переменную и присваиваем ей результат преобразования
 	// с помощью функции strconv.Itoa()
-	linesStr := strconv.Itoa(lines)
+	// linesStr := strconv.Itoa(lines)
+	linesStr := fmt.Sprint(lines)
 
 	// конкатенируем строки и выводим на экран
 	fmt.Println("Поздравляю, " + user + "! Ты написал " + linesStr + " строк кода.")
