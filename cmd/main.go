@@ -2,17 +2,18 @@ package main
 
 import (
 	"fmt"
+	"strconv" // импортируем пакет, в котором находится функция Atoi()
 )
 
 func main() {
-	user := "молодой падаван"
-	lines := 50
+	// это строковая переменная
+	hello := "Привет"
 
-	// объявляем строковую переменную и присваиваем ей результат преобразования
-	// с помощью функции strconv.Itoa()
-	// linesStr := strconv.Itoa(lines)
-	linesStr := fmt.Sprint(lines)
+	someInt, err := strconv.Atoi(hello)
+	// Если ошибка не равна `nil`, то вызовем панику. Программа аварийно завершится.
+	if err != nil {
+		panic(err)
+	}
 
-	// конкатенируем строки и выводим на экран
-	fmt.Println("Поздравляю, " + user + "! Ты написал " + linesStr + " строк кода.")
+	fmt.Println(someInt)
 }
