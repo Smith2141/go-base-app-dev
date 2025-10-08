@@ -1,14 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-    minAge := 18
-    maxAge := 30
+	user := "молодой падаван"
+	lines := 50
 
-    age := 17
+	// объявляем строковую переменную и присваиваем ей результат преобразования
+	// с помощью функции strconv.Itoa()
+	linesStr := strconv.Itoa(lines)
 
-    isValidAge := age >= minAge && age <= maxAge
-    
-    fmt.Println(isValidAge)
+	// конкатенируем строки и выводим на экран
+	fmt.Println("Поздравляю, " + user + "! Ты написал " + linesStr + " строк кода.")
 }
