@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	var f float64 = 352.5
-	var i int = int(f)
+	var e float32 = 2.71828
+	var str string = "Основание натурального логарифма равно "
 
-	fmt.Println(i)
+	fmt.Println(str + fmt.Sprint(e))
 }
