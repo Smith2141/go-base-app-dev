@@ -1,19 +1,13 @@
 package main
 
-import (
-	"fmt"
-	"strconv" // импортируем пакет, в котором находится функция Atoi()
-)
+import "fmt"
 
 func main() {
-	// это строковая переменная
-	hello := "Привет"
+	var firstPart string = "У вас "
+	var secondPart string = " новых сообщений"
 
-	someInt, err := strconv.Atoi(hello)
-	// Если ошибка не равна `nil`, то вызовем панику. Программа аварийно завершится.
-	if err != nil {
-		panic(err)
-	}
+	var count int = 8
+	var countString string = fmt.Sprint(count)
 
-	fmt.Println(someInt)
+	fmt.Println(firstPart + countString + secondPart)
 }
