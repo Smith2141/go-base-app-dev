@@ -3,11 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var firstPart string = "У вас "
-	var secondPart string = " новых сообщений"
+	var x int = 89
+	var y float32 = 100.385
+	var result float32 = float32(x) * y
 
-	var count int = 8
-	var countString string = fmt.Sprint(count)
-
-	fmt.Println(firstPart + countString + secondPart)
+	fmt.Println(result)
 }
