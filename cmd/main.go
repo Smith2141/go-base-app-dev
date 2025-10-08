@@ -1,10 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	var e float32 = 2.71828
-	var str string = "Основание натурального логарифма равно "
+	var x string = "21"
+	var y string = "25.4"
 
-	fmt.Println(str + fmt.Sprint(e))
+	girlfriendAge, err := strconv.Atoi(x)
+
+	if err != nil {
+		panic(err)
+	}
+
+	myAge, err := strconv.ParseFloat(y, 64)
+
+	if err != nil {
+		panic(err)
+	}
+
+    var sumOfAges int = girlfriendAge + int(myAge)
+
+	fmt.Println(sumOfAges)
 }
