@@ -1,27 +1,23 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 func main() {
-	var x string = "21"
-	var y string = "25.4"
+	mark := 4.85
 
-	girlfriendAge, err := strconv.Atoi(x)
-
-	if err != nil {
-		panic(err)
+	if 4.7 <= mark && mark <= float64(5) {
+		fmt.Println("Отличник")
 	}
 
-	myAge, err := strconv.ParseFloat(y, 64)
-
-	if err != nil {
-		panic(err)
+	if 3.9 <= mark && mark < 4.7 {
+		fmt.Println("Ударник")
 	}
 
-    var sumOfAges int = girlfriendAge + int(myAge)
+	if 3.9 <= mark && mark < 4.7 {
+		fmt.Println("Троечник")
+	}
 
-	fmt.Println(sumOfAges)
+	if 3.9 <= mark && mark < 4.7 {
+		fmt.Println("Тихий троечник")
+	}
 }
