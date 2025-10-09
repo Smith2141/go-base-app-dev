@@ -3,21 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	mark := 4.85
+	wind := 6         // сила ветра
+	rain := false     // дождя нет
+	temperature := 16 // температура
 
-	if 4.7 <= mark && mark <= float64(5) {
-		fmt.Println("Отличник")
-	}
-
-	if 3.9 <= mark && mark < 4.7 {
-		fmt.Println("Ударник")
-	}
-
-	if 3.9 <= mark && mark < 4.7 {
-		fmt.Println("Троечник")
-	}
-
-	if 3.9 <= mark && mark < 4.7 {
-		fmt.Println("Тихий троечник")
+	if (!rain || wind <= 4) && temperature > 22 {
+		fmt.Println("Идём гулять, на улице хорошо")
+	} else {
+		fmt.Println("Сидим дома, читаем Практикум")
 	}
 }
