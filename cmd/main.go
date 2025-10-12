@@ -15,8 +15,7 @@ func main() {
 	if part15 >= 0 {
 		tax = (part15 / 100) * 15
 
-		var part13 float64 = income - part15
-		tax += (part13 / 100) * 13
+		tax += (Limit13 / 100) * 13
 	} else {
 		tax = (income / 100) * 13
 	}
