@@ -2,23 +2,22 @@ package main
 
 import "fmt"
 
-const (
-	Limit13 = 5000000
-)
-
 func main() {
-	income := 7878415.0 // доход
-	tax := 0.0          // налог
+	i := 100
+	j := 7
+	op := '/'
 
-	// вставьте код, который вычисляет налог
-	var part15 float64 = income - float64(Limit13)
-	if part15 >= 0 {
-		tax = (part15 / 100) * 15
-
-		tax += (Limit13 / 100) * 13
-	} else {
-		tax = (income / 100) * 13
+	var result int
+	switch op {
+	case '+':
+		result = i + j
+		// добавьте вычисление разности, произведения и частного
+	case '-':
+		result = i - j
+	case '*':
+		result = i * j
+	case '/':
+		result = i / j
 	}
-
-	fmt.Printf("Доход: %.2f, НДФЛ: %.2f", income, tax)
+	fmt.Println(i, string(op), j, "=", result)
 }
