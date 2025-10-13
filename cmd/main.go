@@ -3,19 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	age := 50
+	count := 0 // количество отжиманий
+	i := 1     // счётчик дней
 
-	var birthday string
+	// добавьте цикл for с подсчётом отжиманий
+	for {
+		count += i
 
-	// напишите switch в соответствии с заданием
-	switch {
-	case age%25 == 0:
-		birthday = "С юбилеем!"
-	case age%5 == 0:
-		birthday = "Поздравляем! У вас круглая дата."
-	default:
-		birthday = "С днём рождения!"
+		if i == 100 {
+			break
+		}
+		i++
 	}
 
-	fmt.Println(birthday)
+	fmt.Println("Лёха сделает", count, "отжиманий за 100 дней")
 }
