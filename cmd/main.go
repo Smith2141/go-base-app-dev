@@ -3,18 +3,19 @@ package main
 import "fmt"
 
 func main() {
-    i := 5
-    switch {
-    case i == 0:
-        fmt.Println("o")
-        fallthrough
-    case i < 5, i > 4:
-        fmt.Println("oo")
-    case i < 10:
-        fmt.Println("ooo")
-    case i == 5:
-        fmt.Println("oooo")
-    default: 
-        fmt.Println("ooooo")
-    }
+	age := 50
+
+	var birthday string
+
+	// напишите switch в соответствии с заданием
+	switch {
+	case age%25 == 0:
+		birthday = "С юбилеем!"
+	case age%5 == 0:
+		birthday = "Поздравляем! У вас круглая дата."
+	default:
+		birthday = "С днём рождения!"
+	}
+
+	fmt.Println(birthday)
 }
