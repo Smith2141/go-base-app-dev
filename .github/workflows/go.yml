@@ -18,4 +18,4 @@ jobs:
         curl -L https://golang.org/dl/go1.25.2.linux-amd64.tar.gz | sudo tar -C /usr/local -xz
         echo "/usr/local/go/bin" >> $GITHUB_PATH
         go version
-        go build ./cmd/...
+        go build ./cmd/main.go
