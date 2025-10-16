@@ -3,30 +3,21 @@ package main
 import "fmt"
 
 func main() {
-	var result string
+	var hidden string // результирующая строка со звёздочками
+	var isDogAhead bool = true
+	email := `vasyapupkin33@mail.ru`
 
-	for i := 1; i <= 100; i++ {
-		result = resultModify(i)
+	for i, ch := range email {
+		if string(ch) == "@" {
+			isDogAhead = false
+		}
 
-		fmt.Println(result)
-	}
-}
-
-func resultModify(digit int) string {
-
-	var resultElem string
-
-	if digit%3 == 0 {
-		resultElem += "Fizz"
-	}
-	if digit%5 == 0 {
-		resultElem += "Buzz"
+		if isDogAhead && i > 1 {
+			hidden += "*"
+		} else {
+			hidden += string(ch)
+		}
 	}
 
-	if digit%3 != 0 && digit%5 != 0 {
-
-		resultElem = fmt.Sprint(digit)
-	}
-
-	return resultElem
+	fmt.Println(hidden)
 }
