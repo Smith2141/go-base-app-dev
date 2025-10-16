@@ -3,17 +3,30 @@ package main
 import "fmt"
 
 func main() {
-	count := 2 // количество бактерий
-	day := 1   // счётчик дней
+	var result string
 
-	// реализуйте for с условием и подсчётом бактерий в теле цикла
-	for day <= 30 {
-		if day >= 11 {
-			count -= count / 10
-		}
-		count += count / 2
-		day++
+	for i := 1; i <= 100; i++ {
+		result = resultModify(i)
+
+		fmt.Println(result)
+	}
+}
+
+func resultModify(digit int) string {
+
+	var resultElem string
+
+	if digit%3 == 0 {
+		resultElem += "Fizz"
+	}
+	if digit%5 == 0 {
+		resultElem += "Buzz"
 	}
 
-	fmt.Println("Количество бактерий через 30 дней:", count)
+	if digit%3 != 0 && digit%5 != 0 {
+
+		resultElem = fmt.Sprint(digit)
+	}
+
+	return resultElem
 }
