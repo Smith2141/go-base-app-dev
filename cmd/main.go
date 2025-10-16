@@ -8,7 +8,7 @@ func main() {
 	email := `vasyapupkin33@mail.ru`
 
 	for i, ch := range email {
-		if string(ch) == "@" {
+		if ch == '@' {
 			isDogAhead = false
 		}
 
