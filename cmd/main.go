@@ -3,21 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	var hidden string // результирующая строка со звёздочками
-	var isDogAhead bool = true
-	email := `vasyapupkin33@mail.ru`
-
-	for i, ch := range email {
-		if ch == '@' {
-			isDogAhead = false
-		}
-
-		if isDogAhead && i > 1 {
-			hidden += "*"
-		} else {
-			hidden += string(ch)
+	// Первый множитель
+	for first := 3; first <= 9; first += 2 {
+		// Второй множитель
+		for second := 3; second <= 9; second += 2 {
+			fmt.Printf("%dx%d = %d\n", first, second, first*second)
 		}
 	}
-
-	fmt.Println(hidden)
 }
