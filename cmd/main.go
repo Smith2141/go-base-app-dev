@@ -3,16 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	// массив для средней температуры по месяцам в городе Сочи
-	averageT := [12]float32{6.3, 6.5, 8.6, 12.3, 16.6, 20.9, 23.7,
-		24.3, 20.5, 16.2, 11.4, 8.3}
+    // рекомендованные фильмы
+    recommended := [...]string{"Хатико", "23", "Достучаться до небес",
+        "Хакеры", "Трон", "1408"}
+    // коллекция
+    collection := [...]string{"Трон", "Военные игры", "Тихушники",
+        "Джонни Мнемоник", "Хакеры", "Нирвана", "23", "Враг государства",
+        "Взлом", "Пароль рыба-меч", "Сеть", "Кто я"}
 
-	months := [12]string{
-		"январь", "февраль", "март", "апрель", "май", "июнь",
-		"июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь",
-	}
-
-	for idx := range months {
-		fmt.Printf("%s %.1f\n", months[idx], averageT[idx])
+	for recomendation := range recommended {
+		for movie := range collection {
+			if recommended[recomendation] == collection[movie] {
+				fmt.Println(collection[movie])
+			}
+		}
 	}
 }
