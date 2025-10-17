@@ -2,12 +2,21 @@ package main
 
 import "fmt"
 
+const needVolume int32 = 5_000_000
+
 func main() {
-	// Первый множитель
-	for first := 3; first <= 9; first += 2 {
-		// Второй множитель
-		for second := 3; second <= 9; second += 2 {
-			fmt.Printf("%dx%d = %d\n", first, second, first*second)
+	var minSize int32 = 1_00
+	var maxSize int32 = 3_00
+
+main:
+	for i := minSize; i < maxSize; i++ {
+		var square int32 = i * i
+		for j := minSize; j < maxSize; j++ {
+			var volume int32 = square * j
+			if volume == needVolume {
+				fmt.Println(i, i, j, volume)
+				break main
+			}
 		}
 	}
 }
