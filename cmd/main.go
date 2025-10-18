@@ -2,23 +2,17 @@ package main
 
 import "fmt"
 
-const (
-	Limit13 = 5000000
-)
-
 func main() {
-	income := 7878415.0 // доход
-	tax := 0.0          // налог
-
-	// вставьте код, который вычисляет налог
-	var part15 float64 = income - float64(Limit13)
-	if part15 >= 0 {
-		tax = (part15 / 100) * 15
-
-		tax += (Limit13 / 100) * 13
-	} else {
-		tax = (income / 100) * 13
-	}
-
-	fmt.Printf("Доход: %.2f, НДФЛ: %.2f", income, tax)
+    currentHour := 1
+    fmt.Println("На часах", currentHour, "ч.")
+        
+    if currentHour < 5 || currentHour >= 23 {
+        fmt.Println("Доброй ночи!")
+    } else if currentHour >= 5 && currentHour <= 11 {  
+        fmt.Println("Доброе утро!")
+    } else if currentHour >= 12 && currentHour <= 17 {  
+        fmt.Println("Добрый день!")
+    } else {
+        fmt.Println("Добрый вечер!")
+    }
 }
