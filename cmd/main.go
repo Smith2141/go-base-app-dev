@@ -3,19 +3,20 @@ package main
 import "fmt"
 
 func main() {
-    // рекомендованные фильмы
-    recommended := [...]string{"Хатико", "23", "Достучаться до небес",
-        "Хакеры", "Трон", "1408"}
-    // коллекция
-    collection := [...]string{"Трон", "Военные игры", "Тихушники",
-        "Джонни Мнемоник", "Хакеры", "Нирвана", "23", "Враг государства",
-        "Взлом", "Пароль рыба-меч", "Сеть", "Кто я"}
-
-	for recomendation := range recommended {
-		for movie := range collection {
-			if recommended[recomendation] == collection[movie] {
-				fmt.Println(collection[movie])
-			}
+	list := []int{1, 5, 4, 8, 7, 6, 0, 2, 9}
+	var (
+		index  int
+		isLoop bool // должна быть true, если есть петля
+		count  int
+	)
+	// добавьте в код поиск петли
+	for index >= 0 && index < len(list) {
+		index = list[index]
+		count++
+		if count > len(list) {
+			isLoop = true
+			break
 		}
 	}
+	fmt.Println("В последовательности имеется петля?", isLoop)
 }
