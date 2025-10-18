@@ -3,20 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	list := []int{1, 5, 4, 8, 7, 6, 0, 2, 9}
-	var (
-		index  int
-		isLoop bool // должна быть true, если есть петля
-		count  int
-	)
-	// добавьте в код поиск петли
-	for index >= 0 && index < len(list) {
-		index = list[index]
-		count++
-		if count > len(list) {
-			isLoop = true
-			break
-		}
+	s := "Мезчхе%зцчхкьексцє%з%9%ьеце%ме%ширус%йусе"
+	// расшифруйте сообщение и выведете его
+	runes := []rune(s) // преобразуем в слайс рун
+	for rune := range runes {
+		runes[rune] -= 5
+		fmt.Print(string(runes[rune]))
 	}
-	fmt.Println("В последовательности имеется петля?", isLoop)
+	// message := string(runes)
+	// fmt.Println(message)
+
 }
