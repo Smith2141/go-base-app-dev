@@ -1,16 +1,15 @@
-package main
+package main 
 
 import "fmt"
 
 func main() {
-	s := "Мезчхе%зцчхкьексцє%з%9%ьеце%ме%ширус%йусе"
-	// расшифруйте сообщение и выведете его
-	runes := []rune(s) // преобразуем в слайс рун
-	for rune := range runes {
-		runes[rune] -= 5
-		// fmt.Print(string(runes[rune]))
-	}
-	message := string(runes)
-	fmt.Println(message)
+    list := []int{1, 5, 4, 8, 7, 6, 2, 3}
+	newlist := list
+	fmt.Println(newlist)
 
+    newlist[0] = 77
+    newlist[len(newlist)-1] = 99
+
+    fmt.Println(newlist)
+    fmt.Println(list)
 }
