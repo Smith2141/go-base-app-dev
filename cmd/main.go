@@ -8,9 +8,9 @@ func main() {
 	runes := []rune(s) // преобразуем в слайс рун
 	for rune := range runes {
 		runes[rune] -= 5
-		fmt.Print(string(runes[rune]))
+		// fmt.Print(string(runes[rune]))
 	}
-	// message := string(runes)
-	// fmt.Println(message)
+	message := string(runes)
+	fmt.Println(message)
 
 }
