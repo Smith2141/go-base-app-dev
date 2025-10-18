@@ -3,16 +3,19 @@ package main
 import "fmt"
 
 func main() {
-    currentHour := 1
-    fmt.Println("На часах", currentHour, "ч.")
-        
-    if currentHour < 5 || currentHour >= 23 {
-        fmt.Println("Доброй ночи!")
-    } else if currentHour >= 5 && currentHour <= 11 {  
-        fmt.Println("Доброе утро!")
-    } else if currentHour >= 12 && currentHour <= 17 {  
-        fmt.Println("Добрый день!")
-    } else {
-        fmt.Println("Добрый вечер!")
-    }
+    // рекомендованные фильмы
+    recommended := [...]string{"Хатико", "23", "Достучаться до небес",
+        "Хакеры", "Трон", "1408"}
+    // коллекция
+    collection := [...]string{"Трон", "Военные игры", "Тихушники",
+        "Джонни Мнемоник", "Хакеры", "Нирвана", "23", "Враг государства",
+        "Взлом", "Пароль рыба-меч", "Сеть", "Кто я"}
+
+	for recomendation := range recommended {
+		for movie := range collection {
+			if recommended[recomendation] == collection[movie] {
+				fmt.Println(collection[movie])
+			}
+		}
+	}
 }
