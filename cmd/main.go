@@ -1,15 +1,38 @@
-package main 
+package main
 
 import "fmt"
 
 func main() {
-    list := []int{1, 5, 4, 8, 7, 6, 2, 3}
-	newlist := list
-	fmt.Println(newlist)
+	// оценки по отдельным ученикам
+	marks := [][]int{
+		{5, 4, 5, 5},
+		{3, 4, 4, 5, 3},
+		{2, 3, 3},
+		{5, 5, 4},
+		{4, 3, 4, 4, 3},
+	}
+	var average float32 // итоговый средний балл
 
-    newlist[0] = 77
-    newlist[len(newlist)-1] = 99
+	// добавьте код для подсчёта среднего балла
+	for _, student := range marks {
+		average += calcAvg(student)
+	}
 
-    fmt.Println(newlist)
-    fmt.Println(list)
+	average = average / float32(len(marks))
+
+	fmt.Printf("%.2f", average)
+}
+
+func calcAvg(markList []int) float32 {
+	var (
+		markSum int
+		result  float32
+	)
+
+	for _, mark := range markList {
+		markSum += mark
+	}
+
+	result = float32(markSum) / float32(len(markList))
+	return result
 }
