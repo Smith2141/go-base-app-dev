@@ -18,7 +18,7 @@ func main() {
 		average += calcAvg(student)
 	}
 
-	average = average / float32(len(marks))
+	average /= float32(len(marks))
 
 	fmt.Printf("%.2f", average)
 }
