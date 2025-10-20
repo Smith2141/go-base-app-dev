@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 const (
-	fixSymbol = '?'
-	cLetterEng = 'с'
+	fixSymbol  = '?'
+	cLetterEng = 'c'
 )
 
 func main() {
