@@ -2,32 +2,16 @@ package main
 
 import "fmt"
 
-const (
-	fixSymbol  = '?'
-	cLetterEng = 'c'
-)
-
 func main() {
-	words := []string{"сервер", "cистема", "специалист", "слайc", "процессор",
-		"масcив", "строка", "максимум", "cпоcоб", "парсер", "условие"}
-	var mistakes []string
+	words := []string{"Терры", "важны", "в", "Роботы", "стали",
+		"период", "эмиграции", "c"}
 
-	// вставьте недостающий код
-	for _, word := range words {
-		var hasMistake bool
-		runes := []rune(word)
-		for idx := range runes {
-			if runes[idx] == cLetterEng {
-				runes[idx] = fixSymbol
-				hasMistake = true
-				// fmt.Println("fixed: ", string(runes))
-			}
-		}
+	sentence := make([]string, 0, 8)
+	sentence = append(sentence, words[3:5]...)
+	// добавьте в правильном порядке остальные три фрагмента
+	sentence = append(sentence, words[1:3]...)
+	sentence = append(sentence, words[5:]...)
+	sentence = append(sentence, words[0])
 
-		if hasMistake {
-			mistakes = append(mistakes, string(runes))
-		}
-	}
-
-	fmt.Println(mistakes)
+	fmt.Println(sentence)
 }
