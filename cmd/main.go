@@ -1,40 +1,30 @@
 package main
 
-import (
-    "fmt"
-    "sort"
-)
+import "fmt"
 
 func main() {
-    towns := map[string]int{
-        "Омск":      1104485,
-        "Киров":     475464,
-        "Астрахань": 465524,
-        "Пятигорск": 144955,
-        "Пенза2":     488299,
-        "Пенза1":     488299,
-        "Иркутск":   606369,
-    }
-    // создаём мапу с количеством жителей
-    // так как кол-во жителей у городов может совпадать,
-    // поэтому в качестве элементов мапы используется слайс, а не просто строка
-    counts := make(map[int][]string)
-    // слайс для количества жителей, который будет отсортирован
-    sorted := make([]int, 0, 10)
-    // формируем counts
-    for name, count := range towns {
-        _, ok := counts[count]
-        if !ok {
-            sorted = append(sorted, count)
-        }
-        counts[count] = append(counts[count], name)
-    }
-    // сортируем жителей
-    sort.Ints(sorted)
-    // выводим города по количеству жителей
-    for _, people := range sorted {
-        for _, town := range counts[people] {
-            fmt.Println(town, ":", people)
-        }
-    }
+	towns := map[string]int{
+		"Омск":      1104485,
+		"Киров":     475464,
+		"Астрахань": 465524,
+		"Пятигорск": 144955,
+		"Пенза":     488299,
+		"Иркутск":   606369,
+	}
+	towns2 := map[string]int{
+		"Якутск":    384979,
+		"Омск":      1104485,
+		"Хабаровск": 615570,
+		"Челябинск": 1177058,
+		"Астрахань": 465524,
+		"Пенза":     488299,
+	}
+
+	for name, people := range towns2 {
+		_, ok := towns[name]
+		if !ok {
+			towns[name] = people
+		}
+	}
+	fmt.Println(towns)
 }
