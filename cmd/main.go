@@ -3,15 +3,27 @@ package main
 import "fmt"
 
 func main() {
-	words := []string{"Терры", "важны", "в", "Роботы", "стали",
-		"период", "эмиграции", "c"}
+	// оценки по отдельным ученикам
+	marks := map[string][]int{
+		"Светлана":  {5, 4, 5, 5, 4},
+		"Артём":     {3, 4, 4, 5, 3},
+		"Александр": {2, 3, 3, 4},
+		"Ольга":     {5, 5, 4, 4},
+		"Мария":     {4, 3, 4, 4, 3, 5},
+	}
+	student := "Светлана"
+	var average float32 // средний балл
 
-	sentence := make([]string, 0, 8)
-	sentence = append(sentence, words[3:5]...)
-	// добавьте в правильном порядке остальные три фрагмента
-	sentence = append(sentence, words[1:3]...)
-	sentence = append(sentence, words[5:]...)
-	sentence = append(sentence, words[0])
+	// допишите недостающий код
+	studentMarks := marks[student]
+	studentMarks = append(studentMarks, 5)
+	var sum float32
 
-	fmt.Println(sentence)
+	for _,mark := range studentMarks {
+		sum += float32(mark)
+	}
+
+	average = sum / float32(len(studentMarks))
+
+	fmt.Printf("%.2f\n", average)
 }
