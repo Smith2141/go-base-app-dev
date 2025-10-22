@@ -21,10 +21,7 @@ func printFriendsCount(friendsCount int) {
 // вызовите объявленную вами функцию printFriendsCount()
 // с нужными аргументами внутри функции main
 func main() {
-	// здесь вызовите функцию 5 раз, чтобы поочередно получить выводы из условия задания
-	printFriendsCount(0)
-	printFriendsCount(1)
-	printFriendsCount(2)
-	printFriendsCount(6)
-	printFriendsCount(20)
+	for i := 0; i <= 20; i++ {
+		printFriendsCount(i)
+	}
 }
