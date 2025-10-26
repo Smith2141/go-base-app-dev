@@ -3,31 +3,46 @@ package main
 import "fmt"
 
 const (
-	numberOfCubeSides int = 6
-	numberOfCubes     int = 8
+	numberOfCubes int = 2
+	cubeSideValue int = 3
 )
+
+// функция для вычисления периметра куба
+func calcCubePerimeter(side int) int {
+	return side * 12
+}
 
 // функция для вычисления площади куба
 func calcCubeArea(side int) int {
-	// формулу для вычисления площади одной грани куба Афанасий написал:
 	oneFace := side * side
+	return oneFace * 6
+}
 
-	// вычислите и возвратите полную площадь куба: у него шесть одинаковых граней
-	cubeArea := oneFace * numberOfCubeSides
+// дополните объявление функции:
+// теперь она должна принимать два параметра —
+// длину ребра куба и количество кубов
+func calcCube(side int, amount int) {
+	// вызываем функцию, рассчитывающую периметр,
+	// и передаём в неё размер куба
+	oneCubePerimeter := calcCubePerimeter(side)
+	// здесь вместо многоточия должна стоять переменная,
+	// хранящая количество кубов, переданное во втором аргументе
+	fullLength := oneCubePerimeter * amount
 
-	return cubeArea
+	// вызываем функцию, рассчитывающую площадь стекла,
+	// и передаём в неё размер куба
+	oneCubeArea := calcCubeArea(side)
+	// здесь вместо многоточия должна стоять переменная,
+	// хранящая количество кубов, переданное во втором аргументе
+	fullArea := oneCubeArea * amount
+
+	// поставьте вместо многоточий переменную с количеством кубов
+	// и переменную с длиной ребра
+	fmt.Printf("Для %d кубов с ребром %d м понадобится"+
+		" %d м палок и %d кв. м стекла",
+		amount, side, fullLength, fullArea)
 }
 
 func main() {
-	// присвойте переменной oneCubeArea значение,
-	// которое вернёт функция calcCubeArea() с аргументом 3:
-	// 3 метра — это длина ребра куба
-	oneCubeArea := calcCubeArea(3)
-
-	// вычислите общую площадь стекла, необходимого
-	// для строительства 8 кубов,
-	// и сохраните это значение в переменную fullArea
-	fullArea := oneCubeArea * numberOfCubes
-
-	fmt.Println("Необходимая площадь стекла для 8 кубов, кв. м:", fullArea)
+	calcCube(cubeSideValue, numberOfCubes)
 }
