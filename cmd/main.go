@@ -3,27 +3,31 @@ package main
 import "fmt"
 
 const (
-	cubeSideCount int = 12
-	numberOfCubes int = 8
+	numberOfCubeSides int = 6
+	numberOfCubes     int = 8
 )
 
-// функция для вычисления периметра куба
-func calcCubePerimeter(side int) int {
-	return side * cubeSideCount
+// функция для вычисления площади куба
+func calcCubeArea(side int) int {
+	// формулу для вычисления площади одной грани куба Афанасий написал:
+	oneFace := side * side
+
+	// вычислите и возвратите полную площадь куба: у него шесть одинаковых граней
+	cubeArea := oneFace * numberOfCubeSides
+
+	return cubeArea
 }
 
 func main() {
-	// присвойте переменной oneCubePerimeter значение,
-	// которое вернёт функция calcCubePerimeter() с аргументом 3:
+	// присвойте переменной oneCubeArea значение,
+	// которое вернёт функция calcCubeArea() с аргументом 3:
 	// 3 метра — это длина ребра куба
+	oneCubeArea := calcCubeArea(3)
 
-	oneCubePerimeter := calcCubePerimeter(3)
-
-	// вычислите общую длину палок, необходимых
+	// вычислите общую площадь стекла, необходимого
 	// для строительства 8 кубов,
-	// и сохраните это значение в переменную fullLength
-	fullLength := numberOfCubes * oneCubePerimeter
+	// и сохраните это значение в переменную fullArea
+	fullArea := oneCubeArea * numberOfCubes
 
-	// теперь напечатаем результат (в этой строке ничего изменять не нужно)
-	fmt.Println("Необходимый метраж палок для 8 кубов:", fullLength)
+	fmt.Println("Необходимая площадь стекла для 8 кубов, кв. м:", fullArea)
 }
