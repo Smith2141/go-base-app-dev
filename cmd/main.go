@@ -2,27 +2,28 @@ package main
 
 import "fmt"
 
-// вместо многоточия добавьте тип возвращаемого значения int
-func comfortCount(temperatures []int) int {
-	count := 0
-	for _, temp := range temperatures {
-		if temp >= 22 && temp <= 26 {
-			count += 1
-		}
-	}
-	// добавьте return со значением
-	return count
+const (
+	cubeSideCount int = 12
+	numberOfCubes int = 8
+)
+
+// функция для вычисления периметра куба
+func calcCubePerimeter(side int) int {
+	return side * cubeSideCount
 }
 
 func main() {
-	may2017 := []int{24, 26, 15, 10, 15, 19, 10, 1, 4, 7, 7, 7, 12, 14,
-		17, 8, 9, 19, 21, 22, 11, 15, 19, 23, 15, 21, 16, 13, 25, 17, 19}
+	// присвойте переменной oneCubePerimeter значение,
+	// которое вернёт функция calcCubePerimeter() с аргументом 3:
+	// 3 метра — это длина ребра куба
 
-	// код ниже не изменяйте:
-	// вызовем функцию comfortCount(), передадим в неё слайс may2017,
-	// результат работы сохраним в переменную niceDays
-	niceDays := comfortCount(may2017)
+	oneCubePerimeter := calcCubePerimeter(3)
 
-	// напечатаем значение, сохранённое в niceDays
-	fmt.Println("Количество тёплых дней в этом месяце:", niceDays)
+	// вычислите общую длину палок, необходимых
+	// для строительства 8 кубов,
+	// и сохраните это значение в переменную fullLength
+	fullLength := numberOfCubes * oneCubePerimeter
+
+	// теперь напечатаем результат (в этой строке ничего изменять не нужно)
+	fmt.Println("Необходимый метраж палок для 8 кубов:", fullLength)
 }
