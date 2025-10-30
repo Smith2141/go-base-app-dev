@@ -1,21 +1,12 @@
 package main
 
-import (
-	"fmt"
-)
-
-// Функция, которая принимает другую функцию в качестве аргумента
-func squareAndPrint(fn func(int) int) {
-	result := fn(5)
-	fmt.Println(result)
-}
-
-// Функция, которая будет передаваться как аргумент
-func square(x int) int {
-	return x * x
-}
+import "fmt"
 
 func main() {
-	// Передаем функцию square в doSomething
-	squareAndPrint(square)
+    // создаём анонимную функцию и присваиваем переменной f
+    f := func(a, b int) bool { return a < b }
+    // вызываем функцию и сохраняем результат в переменную res
+    res := f(10, 20)                         
+
+    fmt.Println(res)
 }
