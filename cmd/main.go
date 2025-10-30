@@ -40,23 +40,20 @@ func closureCalculate() func() int {
 			firstDigitEntered = true
 		}
 
-		var result int
 		operator, secondDigit := getData()
 
 		switch operator {
 		case "+":
-			result = firstDigit + secondDigit
+			firstDigit = firstDigit + secondDigit
 		case "-":
-			result = firstDigit - secondDigit
+			firstDigit = firstDigit - secondDigit
 		case "*":
-			result = firstDigit * secondDigit
+			firstDigit = firstDigit * secondDigit
 		case "/":
-			result = firstDigit / secondDigit
+			firstDigit = firstDigit / secondDigit
 		}
 
-		firstDigit = result
-
-		return result
+		return firstDigit
 	}
 }
 
