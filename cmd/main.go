@@ -1,38 +1,25 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-	"strings"
-)
+import "fmt"
 
 // Получаем и разбираем пользовательский ввод
-func getData() (string, int) {
-	var secondInput, operator string
-	var secondDigit int
-	var err error
+func getData() (string, float64) {
+	var operator string
+	var secondDigit float64
 
-	fmt.Print("Введите оператор и второй операнд: ")
-	fmt.Scan(&secondInput)
-
-	var runes []rune = []rune(secondInput)
-
-	secondDigit, err = strconv.Atoi(strings.TrimPrefix(secondInput, string(runes[0])))
-
-	if err != nil {
-		panic("Проверьте правильность ввода!!!")
-	}
-
-	operator = strings.TrimSuffix(secondInput, fmt.Sprint(secondDigit))
+	fmt.Print("Введите оператор: ")
+	fmt.Scan(&operator)
+	fmt.Print("Введите второй операнд: ")
+	fmt.Scan(&secondDigit)
 
 	return operator, secondDigit
 }
 
-func closureCalculate() func() int {
-	var firstDigit int
+func closureCalculate() func() float64 {
+	var firstDigit float64
 	var firstDigitEntered bool
 
-	return func() int {
+	return func() float64 {
 
 		if !firstDigitEntered {
 			fmt.Print("Введите первый операнд: ")
@@ -50,7 +37,13 @@ func closureCalculate() func() int {
 		case "*":
 			firstDigit = firstDigit * secondDigit
 		case "/":
+			if secondDigit == 0.0 {
+				fmt.Println("На ноль делить нельзя")
+				return 0.0
+			}
 			firstDigit = firstDigit / secondDigit
+		default:
+			fmt.Println("Оператор не корректен")
 		}
 
 		return firstDigit
