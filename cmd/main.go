@@ -2,47 +2,33 @@ package main
 
 import "fmt"
 
-const (
-	numberOfCubes int = 2
-	cubeSideValue int = 3
-)
-
 // функция для вычисления периметра куба
-func calcCubePerimeter(side int) int {
+func calcCubePerimeter(side float64) float64 {
 	return side * 12
 }
 
 // функция для вычисления площади куба
-func calcCubeArea(side int) int {
+func calcCubeArea(side float64) float64 {
 	oneFace := side * side
 	return oneFace * 6
 }
 
-// дополните объявление функции:
-// теперь она должна принимать два параметра —
-// длину ребра куба и количество кубов
-func calcCube(side int, amount int) {
-	// вызываем функцию, рассчитывающую периметр,
-	// и передаём в неё размер куба
+func calcCube(side float64, amount int) {
 	oneCubePerimeter := calcCubePerimeter(side)
-	// здесь вместо многоточия должна стоять переменная,
-	// хранящая количество кубов, переданное во втором аргументе
-	fullLength := oneCubePerimeter * amount
-
-	// вызываем функцию, рассчитывающую площадь стекла,
-	// и передаём в неё размер куба
+	fullLength := oneCubePerimeter * float64(amount)
 	oneCubeArea := calcCubeArea(side)
-	// здесь вместо многоточия должна стоять переменная,
-	// хранящая количество кубов, переданное во втором аргументе
-	fullArea := oneCubeArea * amount
+	fullArea := oneCubeArea * float64(amount)
 
-	// поставьте вместо многоточий переменную с количеством кубов
-	// и переменную с длиной ребра
-	fmt.Printf("Для %d кубов с ребром %d м понадобится"+
-		" %d м палок и %d кв. м стекла",
+	fmt.Printf("Для %d кубов с ребром %.2f м понадобится"+
+		" %.2f м палок и %.2f кв. м стекла\r\n",
 		amount, side, fullLength, fullArea)
 }
 
 func main() {
-	calcCube(cubeSideValue, numberOfCubes)
+	// ниже напишите три вызова функции calcСube(),
+	// каждый вызов должен быть на отдельной строке
+
+	calcCube(2, 4)
+	calcCube(0.5, 26)
+	calcCube(0.61, 6)
 }
