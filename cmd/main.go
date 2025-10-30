@@ -6,62 +6,66 @@ import (
 	"strings"
 )
 
-// Получаем пользовательский ввод
-func getData() string {
-	var secondInput string
-	fmt.Print("Введите оператор и второй операнд, или \"quit\": ")
+// Получаем и разбираем пользовательский ввод
+func getData() (string, int) {
+	var secondInput, operator string
+	var secondDigit int
+	var err error
+
+	fmt.Print("Введите оператор и второй операнд: ")
 	fmt.Scan(&secondInput)
 
-	return secondInput
-}
+	var runes []rune = []rune(secondInput)
 
-// Выполняем парсинг строки и вычисления
-func calculate(firstDigit int, data string) int {
-	var result int
-	var runes []rune = []rune(data)
+	secondDigit, err = strconv.Atoi(strings.TrimPrefix(secondInput, string(runes[0])))
 
-	if len(runes) < 2 {
+	if err != nil {
 		panic("Проверьте правильность ввода!!!")
 	}
 
-	secondDigit, err := strconv.Atoi(strings.TrimPrefix(data, string(runes[0])))
+	operator = strings.TrimSuffix(secondInput, fmt.Sprint(secondDigit))
 
-	if err != nil {
-		panic(err)
+	return operator, secondDigit
+}
+
+func closureCalculate() func() int {
+	var firstDigit int
+	var firstDigitEntered bool
+
+	return func() int {
+
+		if !firstDigitEntered {
+			fmt.Print("Введите первый операнд: ")
+			fmt.Scan(&firstDigit)
+			firstDigitEntered = true
+		}
+
+		var result int
+		operator, secondDigit := getData()
+
+		switch operator {
+		case "+":
+			result = firstDigit + secondDigit
+		case "-":
+			result = firstDigit - secondDigit
+		case "*":
+			result = firstDigit * secondDigit
+		case "/":
+			result = firstDigit / secondDigit
+		}
+
+		firstDigit = result
+
+		return result
 	}
-
-	var operator string = strings.TrimSuffix(data, fmt.Sprint(secondDigit))
-
-	switch operator {
-	case "+":
-		result = firstDigit + secondDigit
-	case "-":
-		result = firstDigit - secondDigit
-	case "*":
-		result = firstDigit * secondDigit
-	case "/":
-		result = firstDigit / secondDigit
-	}
-
-	return result
 }
 
 func main() {
-	var firstDigit int
-	var secondData string
+	process := closureCalculate()
 
-	fmt.Print("Введите первый операнд: ")
-	fmt.Scan(&firstDigit)
+	for {
+		result := process()
 
-	secondData = getData()
-
-	for secondData != "q" {
-		fmt.Println("Выполнение программы")
-
-		firstDigit = calculate(firstDigit, secondData)
-		fmt.Println(firstDigit)
-		secondData = getData()
+		fmt.Println(result)
 	}
-
-	fmt.Println("Выполняю выход из программы")
 }
