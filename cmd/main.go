@@ -1,21 +1,67 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
-// Далее создаем функцию, которая будет принимать функцию обратного вызова
-// в качестве параметра `callback`
-func Process(numbers []int, callback func(int) int) []int {
-	for i, num := range numbers {
-		// Вызываем функцию, переданную в параметре для каждого элемента в слайсе
-		numbers[i] = callback(num)
+// Получаем пользовательский ввод
+func getData() string {
+	var secondInput string
+	fmt.Print("Введите оператор и второй операнд, или \"quit\": ")
+	fmt.Scan(&secondInput)
+
+	return secondInput
+}
+
+// Выполняем парсинг строки и вычисления
+func calculate(firstDigit int, data string) int {
+	var result int
+	var runes []rune = []rune(data)
+
+	if len(runes) < 2 {
+		panic("Проверьте правильность ввода!!!")
 	}
 
-	return numbers
+	secondDigit, err := strconv.Atoi(strings.TrimPrefix(data, string(runes[0])))
+
+	if err != nil {
+		panic(err)
+	}
+
+	var operator string = strings.TrimSuffix(data, fmt.Sprint(secondDigit))
+
+	switch operator {
+	case "+":
+		result = firstDigit + secondDigit
+	case "-":
+		result = firstDigit - secondDigit
+	case "*":
+		result = firstDigit * secondDigit
+	case "/":
+		result = firstDigit / secondDigit
+	}
+
+	return result
 }
 
 func main() {
-	// Передаем в Process() слайс и анонимную функцию вместе с ее реализацией
-	res := Process([]int{1, 2, 3}, func(num int) int { return num * num })
+	var firstDigit int
+	var secondData string
 
-	fmt.Println(res)
+	fmt.Print("Введите первый операнд: ")
+	fmt.Scan(&firstDigit)
+
+	secondData = getData()
+
+	for secondData != "q" {
+		fmt.Println("Выполнение программы")
+
+		firstDigit = calculate(firstDigit, secondData)
+		fmt.Println(firstDigit)
+		secondData = getData()
+	}
+
+	fmt.Println("Выполняю выход из программы")
 }
