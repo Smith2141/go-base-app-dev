@@ -2,17 +2,20 @@ package main
 
 import "fmt"
 
-// printOnTrue напечатает s в случае, если функция f вернёт true,
-// в противном случае она ничего не сделает
-func printOnTrue(f func(a int, b int) bool, s string) {
-    if f(10, 20) {
-        fmt.Println(s)
-    }
+// Далее создаем функцию, которая будет принимать функцию обратного вызова
+// в качестве параметра `callback`
+func Process(numbers []int, callback func(int) int) []int {
+	for i, num := range numbers {
+		// Вызываем функцию, переданную в параметре для каждого элемента в слайсе
+		numbers[i] = callback(num)
+	}
+
+	return numbers
 }
 
 func main() {
-    // создаём анонимную функцию и присваиваем переменной f
-    f := func(a, b int) bool { return a < b }
-    // передаём функцию f в качестве аргумента функции printOnTrue
-    printOnTrue(f, "и правда меньше")
+	// Передаем в Process() слайс и анонимную функцию вместе с ее реализацией
+	res := Process([]int{1, 2, 3}, func(num int) int { return num * num })
+
+	fmt.Println(res)
 }
